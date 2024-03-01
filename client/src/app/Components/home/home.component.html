@@ -1,0 +1,48 @@
+<section
+  class="review-section spad set-bg mt-10"
+  [style.background-image]="'url(../assets/img/review-bg.png)'"
+>
+  <div class="container">
+    <div class="section-title">
+      <div class="header-content flex flex-col sm:flex-row flex-c text-center">
+        <h2 class="pb-2">Find a game:</h2>
+        <br />
+        <div class="flex justify-center p-2 sm:w-1/5">
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            placeholder="Elden Ring, Hollow Knight..."
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="flex flex-wrap">
+        <div
+          class="review-item"
+          *ngFor="
+            let game of games$ | async | filter : searchText;
+            let i = index
+          "
+        >
+          <a
+            [routerLink]="['/game', game.id]"
+            class="nav-link text-uppercase text-black fs-22 fw-6 ls-1"
+          >
+            <div
+              class="review-cover set-bg w-80 h-80"
+              [ngStyle]="{ 'background-image': 'url(' + game.photoURL + ')' }"
+            >
+              <div class="score yellow">{{ game.rating }}</div>
+            </div>
+            <div class="review-text">
+              <h5>{{ game.title }}</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

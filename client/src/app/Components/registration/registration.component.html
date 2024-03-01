@@ -1,0 +1,26 @@
+<div class="container">
+  <input type="checkbox" id="check" />
+  <div class="form bg-secondary-soft text-xl font-bold">
+    <header>Signup</header>
+    <form [formGroup]="form" (submit)="register()">
+      <input type="text" formControlName="firstName" placeholder="First name" />
+      <input type="text" formControlName="lastName" placeholder="Last name" />
+      <input type="text" formControlName="username" placeholder="Username" />
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Create a password"
+      />
+      
+
+      <button type="submit" class="button">Register</button>
+    </form>
+
+    <div class="signup">
+      <span class="signup"
+        >Already have an account?
+        <a routerLink="/login" type="button">Login</a>
+      </span>
+    </div>
+  </div>
+</div>

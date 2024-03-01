@@ -1,0 +1,24 @@
+<!-- Header section -->
+<header class="header-section h-20">
+  <div class="container">
+    <!-- logo -->
+    <a class="site-logo float-left" href="index.html">
+      <img src="../assets/img/logo.png" alt="" />
+    </a>
+    <div class="user-panel">
+      <a [routerLink]="['/login']">Login</a> / <a [routerLink]="['/registration']">Register</a>
+    </div>
+    <!-- responsive -->
+    <div class="nav-switch">
+      <i class="fa fa-bars"></i>
+    </div>
+    <!-- site menu -->
+    <nav class="main-menu">
+      <ul>
+        <li><a [routerLink]="['/']">Games</a></li>
+        <li><a [routerLink]="['/developers']">Developers</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- Header section end -->

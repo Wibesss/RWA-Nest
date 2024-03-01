@@ -1,0 +1,98 @@
+<div
+  class="sm:overflow-hidden bg-secondary-soft flex flex-col sm:flex-row justify-evenly h-full mt-96 sm:mt-6 sm:mb-6"
+>
+  <div class="flex flex-col items-center sm:h-full sm:w-1/2">
+    <div class="w-44 sm:w-96">
+      <img [src]="(game$ | async)?.photoURL" class="game-image" />
+    </div>
+    <div class="">
+      <div class="p-6">
+        <h2 class="fs-24 fw-6 text-3xl text-prim font-bold text-center">
+          {{ (game$ | async)?.title }}
+        </h2>
+      </div>
+
+      <div class="text-center font-bold mb-10">
+        <p class="text-2xl text-primary">
+          Rating: {{ (game$ | async)?.rating }}
+        </p>
+      </div>
+      <ng-container *ngIf="authenticated">
+        <div class="">
+          <label for="newRating">Enter your rating:</label>
+          <input
+            type="number"
+            id="newRating"
+            [(ngModel)]="newGameRating.rating"
+            min="1"
+            max="10"
+          />
+        </div>
+        <div class="flex justify-center">
+          <button (click)="dodaj()" class="btn-prim">Rate the game</button>
+        </div>
+        <div class="mt-4 flex justify-center">
+          <button (click)="dodajKodUsera()" class="btn-prim">
+            Add game to your list
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="flex flex-col sm:h-full sm:w-1/2 p-10">
+    <ng-container *ngIf="authenticated">
+      <div class="font-bold text-lg">
+        <label for="newRating  ">Review comment:</label>
+        <input type="text" id="komentar" [(ngModel)]="newGameReview.review" />
+      </div>
+      <div class="nav-item">
+        <button
+          (click)="dodajKomentar()"
+          class="btn-prim"
+          [disabled]="!newGameReview.review"
+        >
+          Add a review
+        </button>
+      </div>
+    </ng-container>
+
+    <div class="overflow-auto h-full mt-6">
+      <div
+        *ngFor="let review of gameReviews$ | async"
+        class="p-2 rounded-md bg-white flex flex-col m-2"
+      >
+        <div
+          class="profil korisnika font-bold text-xl flex flex-row justify-start"
+        >
+          <div class="gameslika-img mr-6 w-20">
+            <img
+              [src]="review.user?.photoURL || user.photoURL"
+              (error)="handleImageError($event)"
+              class="game-image"
+              alt="{{ review.user?.photoURL }} slika"
+            />
+          </div>
+          <div class="flex justify-center">
+            <p class="text-black">
+              {{ review.user?.username || user.username }}
+            </p>
+          </div>
+        </div>
+        <p class="font-bold text-xl text-black">{{ review.review }}</p>
+        <div
+          class="flex justify-end"
+          *ngIf="review.user?.id == this.user.id"
+        >
+          <button
+            type="submit"
+            class="btn-danger w-1/2 sm:w-1/5"
+            (click)="delete(review.id!)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

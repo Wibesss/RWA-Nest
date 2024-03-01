@@ -1,0 +1,178 @@
+.game-item-info-item.genre,
+.game-item-info-item.episodes,
+.game-item-info-item.rating {
+  line-height: 1.4;
+  font-size: 14px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+.game-item-info-item:not(.game-item-info-item.title) span:last-child {
+  opacity: 0.8;
+}
+
+.nav-link:hover {
+  color: var(--purple-color);
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.fw-7 {
+  font-weight: 700;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-15 {
+  font-size: 15px;
+}
+/* Dodajte okvir oko svakog game studija */
+.game-item {
+  width: 100%; /* game element zauzima celu širinu kolone */
+  max-width: 300px; /* Maksimalna širina game elementa */
+  margin: 10px;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  position: relative; /* Dodajte relativno pozicioniranje kako bismo postavili sliku studija unutar svakog gamea */
+}
+
+/* Postavite maksimalnu širinu za red sa game studijima */
+.game-list {
+  display: grid;
+  gap: 10px; /* Smanjen razmak između game elemenata */
+  justify-items: center; /* Centriranje elemenata */
+  margin-top: 2rem;
+}
+/* Stil za dodavanje novog game studija */
+.add-game-form {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* Stil za naslov game studija */
+h2 {
+  margin-bottom: 10px;
+}
+
+
+
+/* Stil za formu za dodavanje novog game studija */
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 5px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.loading {
+  font-style: italic;
+  margin-top: 10px;
+}
+
+textarea[type="description"],
+input[type="number"],
+textarea[type="name"],
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ffb320;
+  border-radius: 3px;
+}
+textarea[type="description"],
+input[type="number"],
+textarea[type="name"],
+input[type="file"] {
+  width: 60%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ffb320;
+  border-radius: 3px;
+  outline: none; /* Uklonite obrub (outline) kad element dobije fokus */
+  align-self: center;
+}
+
+
+body {
+  display: flex;
+  justify-content: center; /* Horizontalno centriranje */
+  align-items: center; /* Vertikalno centriranje */
+  height: 100vh; /* Visina ekran */
+  margin: 0; /* Uklonite unapred postavljeni margin */
+}
+
+/* Ovaj stil će centrirati sadržaj unutar .add-game-form kontejnera */
+.add-game-form {
+  text-align: center; /* Centriraj tekst unutar kontejnera */
+  padding: 20px; /* Dodajte prostor oko sadržaja za bolji izgled */
+  border-radius: 8px; /* Dodajte zaobljenje ivica za bolji izgled */
+}
+
+.game-item-img img {
+  max-width: 180px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.game-item-info {
+  margin-top: 2rem;
+}
+.game-item-info {
+  margin-top: 2rem;
+}
+
+.game-item-info-item.title {
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+.game-item-img img {
+  max-width: 180px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.game-item-info {
+  margin-top: 2rem;
+}
+
+.game-item-info-item.title {
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+
+.game-item-info-item.genre {
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.game-item-info-item:not(.game-item-info-item.title) span:last-child {
+  opacity: 0.8;
+}
+
+.game-item-info-item.episodes {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.game-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
